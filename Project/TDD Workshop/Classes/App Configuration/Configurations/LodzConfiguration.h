@@ -7,5 +7,5 @@
 #import "Configuration.h"
 
 
-@interface BerlinConfiguration : NSObject <Configuration>
+@interface LodzConfiguration : NSObject <Configuration>
 @end
