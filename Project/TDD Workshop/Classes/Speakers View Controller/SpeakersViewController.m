@@ -15,7 +15,9 @@
 @implementation SpeakersViewController
 
 - (id)init {
+    //TODO This is a bug, we need create an instance of SpeakersCollectionViewLayout here!
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         _speakers = [self defaultSpeakers];
