@@ -31,16 +31,13 @@ describe(@"StreamItemPreviewViewController", ^{
         });
 
         it(@"should have paging enabled", ^{
+            //TODO: Implement me!
             //Hint: check pagingEnabled property on collection view
-            UICollectionView *collectionView = (UICollectionView *) streamItemPreviewViewController.view;
-            expect(collectionView.pagingEnabled).to.beTruthy();
         });
 
         it(@"should be horizontally scrollable", ^{
+            //TODO: Implement me!
             //Hint: check scrollDirection on flow layout
-            UICollectionView *collectionView = (UICollectionView *) streamItemPreviewViewController.view;
-            UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) collectionView.collectionViewLayout;
-            expect(layout.scrollDirection).to.equal(UICollectionViewScrollDirectionHorizontal);
         });
     });
 

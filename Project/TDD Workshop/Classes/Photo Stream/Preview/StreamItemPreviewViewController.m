@@ -38,9 +38,7 @@
     StreamItemPreviewLayout *flowLayout = [StreamItemPreviewLayout new];
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
                                                           collectionViewLayout:flowLayout];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     collectionView.backgroundColor = [UIColor whiteColor];
-    collectionView.pagingEnabled = TRUE;
     return collectionView;
 }
 
