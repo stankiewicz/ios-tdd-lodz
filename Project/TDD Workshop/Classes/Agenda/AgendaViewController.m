@@ -14,12 +14,17 @@
     if (self) {
         self.title = @"Agenda";
         self.tabBarItem.image = [UIImage imageNamed:@"agenda"];
+        _agendaProvider = [AgendaProvider new];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    typeof (self) weak = self;
+    [self.agendaProvider reloadAgendaWithCompletionHandler:^{
+        [weak.tableView reloadData];
+    }];
 }
 
 #pragma mark - Data source

@@ -11,12 +11,13 @@
 #import "Speaker.h"
 #import "SpeakerCollectionViewCell.h"
 #import "SpeakerDetailsViewController.h"
+#import "SpeakersCollectionViewLayout.h"
 
 @implementation SpeakersViewController
 
 - (id)init {
     //TODO This is a bug, we need create an instance of SpeakersCollectionViewLayout here!
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionViewFlowLayout *layout = [[SpeakersCollectionViewLayout alloc] init];
 
     self = [super initWithCollectionViewLayout:layout];
     if (self) {

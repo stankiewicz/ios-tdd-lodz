@@ -13,4 +13,8 @@
     self.reloadCompletionHandler = completionHandler;
 }
 
+- (void)simulateSuccessWithItems:(NSArray *)array {
+if (_reloadCompletionHandler)
+    _reloadCompletionHandler();
+}
 @end

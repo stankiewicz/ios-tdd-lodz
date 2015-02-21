@@ -15,7 +15,13 @@ describe(@"AgendaViewController", ^{
     beforeEach(^{
         viewController = [[AgendaViewController alloc] init];
     });
-    
+
+    describe(@"object setup", ^{
+        it(@"should have instance of Agenda Provider", ^{
+            expect(viewController.agendaProvider).to.beKindOf([AgendaProvider class]);
+        });
+    });
+
     describe(@"title", ^{
         it(@"should be set to 'Agenda'", ^{
             expect(viewController.title).to.equal(@"Agenda");
@@ -33,10 +39,39 @@ describe(@"AgendaViewController", ^{
     });
     
     describe(@"view loads", ^{
-        it(@"should reload agenda", PENDING);
-        
+        __block FakeAgendaProvider *provider;
+        beforeEach(^{
+            provider = [FakeAgendaProvider new];
+            viewController.agendaProvider = provider;
+        });
+
+        it(@"should reload agenda", ^{
+            [viewController viewDidLoad]; // lub viewDidLoad
+            expect([provider reloadAgendaCalled]).to.beTruthy();
+
+        });
+
         context(@"when agenda reloading completes", ^{
-            it(@"should reload table view", PENDING);
+            __block FakeTableView *fakeTableView;
+            beforeEach(^{
+                // arrange
+                fakeTableView = mock([UITableView class]);
+
+
+                // act
+                viewController.view = fakeTableView;
+                [viewController viewDidLoad];
+            });
+            it(@"should reload table view", ^{
+                // symulujemy asynchroniczna symulacje
+                [provider simulateSuccessWithItems:@[]];
+
+                [verify(fakeTableView) reloadData];
+
+
+
+
+            });
         });
     });
     
